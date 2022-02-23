@@ -1,4 +1,6 @@
+const { on } = require("events");
 const net = require("net");
+const { start } = require("repl");
 
 // establishes a connection with the game server
 const connect = function () {
@@ -7,9 +9,12 @@ const connect = function () {
     port: 50541
   });
   console.log("Connecting ...");
+  conn.on("connect", () => {
+    console.log("Successfully connected to server")
+    conn.write("Name: NP")
+  });
   conn.on('data', (data) => {
     console.log(data.toString());
-    
     conn.end();
   });
   conn.on('end', () => {
