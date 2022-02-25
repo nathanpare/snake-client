@@ -12,14 +12,14 @@ const connect = function () {
   conn.on("connect", () => {
     console.log("Successfully connected to server");
     conn.write("Name: NP");
-    let moves = ["Move: up",   "Move: right",   "Move: down",   "Move: left", "\n"]
-let delay = 0;
-for (const Move of moves) {
-  setTimeout(() => {
-    conn.write(Move);
-  },delay);
-  delay += 2000;
-}
+//     let moves = ["Move: up",   "Move: right",   "Move: down",   "Move: left", "\n"]
+// let delay = 0;
+// for (const Move of moves) {
+//   setTimeout(() => {
+//     conn.write(Move);
+//   },delay);
+//   delay += 2000;
+// }
   });
   conn.on('data', (data) => {
     console.log(data.toString());
@@ -33,9 +33,6 @@ for (const Move of moves) {
   
   return conn;
 };
-
-
-connect();
 
 module.exports = {
   connect,
