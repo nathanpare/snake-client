@@ -8,8 +8,8 @@ Before you can run this client, you will need to be running the server side whic
 
 ## Final Product
 
-!["https://github.com/lighthouse-labs/snek-multiplayer"](#)
-!["https://github.com/nathanpare/snake-client"](#)
+["Snake server repo"](https://github.com/lighthouse-labs/snek-multiplayer)
+["Snake Client"]("https://github.com/nathanpare/snake-client")
 
 ## Additional changes
 - Added additional constant names for every supported input
