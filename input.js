@@ -1,9 +1,11 @@
 // setup interface to handle user input from stdin
 
 const { stdout, stdin } = require("process");
-const { moveUpKey, moveLeftKey, moveDownKey, moveRightKey } = require("./constants");
+const { moveUpKey, moveLeftKey, moveDownKey, moveRightKey, messageKey1, messageKey2, controlC } = require("./constants");
 let connection;
-
+//declaring our main function for input data, here we declare
+//the necessary parameters and logic with a callback to our
+//handleUserInput function
 const setupInput = (conn) => {
   connection = conn;
   const stdin = process.stdin;
@@ -13,9 +15,9 @@ const setupInput = (conn) => {
   stdin.on("data", handleUserInput);
   return stdin;
 };
-
+//declaring a callback function to assign data to input keys
 const handleUserInput = function (data) {
-  if (data === '\u0003') {
+  if (data === controlC) {
     process.exit();
   }
   if (data === moveUpKey) {
@@ -30,10 +32,10 @@ const handleUserInput = function (data) {
   if (data === moveRightKey) {
     connection.write("Move: right");
   }
-  if (data === 'f') {
+  if (data === messageKey1) {
     connection.write("Say: You've got this!");
   }
-  if (data === 'c') {
+  if (data === messageKey2) {
     connection.write("Say: You're killing it!");
   }
 };
